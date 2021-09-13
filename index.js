@@ -9,3 +9,34 @@
 // so when we fect the info from the API, we need to add a click event that takes the fetched information and feeds it into the monster-card div
 // we will make a function to call at the end of the fetch that does all this 
 // hardcode a monster to load in with the HTML so that there is always visible content
+
+// step one: Create our DOMContentLoaded function 
+// Is this our list filler?
+// so on DOMContentLoad: Fetch the api and append the monster names to a list, also add the click functionality
+// put everything involving the API in the DOMContentLoad function
+
+
+
+document.addEventListener('DOMContentLoaded', init);
+const BASE_URL = 'http://localhost:3000/monsters'
+function init(){
+    fetch(BASE_URL)
+    .then(resp => resp.json())
+    .then(monsters => getMonsters(monsters))
+    
+}
+
+function getMonsters(monsters){
+    
+    monsters.forEach(obj => {
+        const monsterItem = document.createElement('li')
+        monsterItem.textContent = obj.name
+        const monsterList = document.querySelector('#monster-name-list')
+        monsterList.append(monsterItem)
+        monsterItem.addEventListener('click', showMonster)
+    })
+}
+
+function showMonster(event){
+
+}

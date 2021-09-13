@@ -15,7 +15,7 @@
 // so on DOMContentLoad: Fetch the api and append the monster names to a list, also add the click functionality
 // put everything involving the API in the DOMContentLoad function
 
-
+// if a monster has legendary actions, create a element for it, otherwise ignore
 
 document.addEventListener('DOMContentLoaded', init);
 const BASE_URL = 'http://localhost:3000/monsters'
@@ -29,14 +29,32 @@ function init(){
 function getMonsters(monsters){
     
     monsters.forEach(obj => {
-        const monsterItem = document.createElement('li')
+        const monsterItem = document.createElement('button')
         monsterItem.textContent = obj.name
         const monsterList = document.querySelector('#monster-name-list')
         monsterList.append(monsterItem)
-        monsterItem.addEventListener('click', showMonster)
-    })
+        monsterItem.addEventListener('click', () => testOne(obj))
+})
 }
 
-function showMonster(event){
 
+function testOne(obj){
+    const monsterName = document.querySelector('#monster-name')
+    const monsterImage = document.querySelector('#monster-image')
+    const monsterHP = document.querySelector('#hit-points')
+    const monsterAC = document.querySelector('#armor-class')
+    const monsterActions = document.querySelector('#monster-actions')
+       monsterName.textContent = obj.name
+       monsterImage.src = obj.img_url
+       monsterHP.innerHTML = obj['Hit Points']
+       monsterAC.innerHTML = obj['Armor Class']
+       monsterActions.innerHTML = obj.Actions
+       if(!!obj['Legendary Actions'] === true){
+           const legendary = document.createElement('p')
+           const legendHeader = document.createElement('h3')
+           legendHeader.textContent = 'Legendary Actions'
+           monsterActions.append(legendHeader)
+           legendary.innerHTML = obj['Legendary Actions']
+           monsterActions.append(legendary)
+       }
 }

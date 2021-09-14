@@ -26,7 +26,6 @@
         .then(resp => resp.json())
         .then(monsters => getMonsters(monsters))
         
-        fetchHomebrew()
 
         const createBttn = document.querySelector('#monster-form')
         // createBttn.addEventListener('submit', newMonster)

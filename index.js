@@ -52,17 +52,18 @@ function getMonsters(monsters){
         monsterItem.textContent = obj.name
         const monsterList = document.querySelector('#monster-name-list')
         monsterList.append(monsterItem)
-        monsterItem.addEventListener('click', () => testOne(obj))
+        monsterItem.addEventListener('click', () => monsterCardMaker(obj))
     })
 }
 
 
-function testOne(obj){
+function monsterCardMaker(obj){
     // trying to figure how to delete the last populated monster
-    if(!!document.querySelector('#monsterCardDiv') === true){
-        monsterCard.removeChild(monsterCardDiv)
-    }
-
+   // if(!!document.querySelector('#monsterCardDiv') === true){
+   //      monsterCard.removeChild(monsterCardDiv)
+    // }
+    const fillerImg = document.querySelector('#filler-image')
+    fillerImg.remove()
     const monsterCard = document.querySelector('#monster-card')
     const monsterCardDiv = document.createElement('div')
     const monsterName = document.createElement('h1')
@@ -89,13 +90,13 @@ function testOne(obj){
         const deleteBtn = document.createElement('button')
         const monForm = document.querySelector('#monster-card')
         deleteBtn.textContent = 'Delete'
-        deleteBtn.addEventListener('click', () => deleteMon(obj, obj))
+        deleteBtn.addEventListener('click', () => deleteMon(monsterCardDiv, obj))
         monForm.append(deleteBtn)
     }
 }
 
- function deleteMon(obj){
-    
+ function deleteMon(card,obj){
+    card.remove()
     fetch(`${HOMEBREW_URL}/${obj.id}`,{
         method:'DELETE',
  })
@@ -167,7 +168,7 @@ function makeHomebrewBttn(monster){
         homebrewBttn.textContent = monster.name
         const homebrewList = document.querySelector('#homebrew-monsters')
         homebrewList.append(homebrewBttn)
-        homebrewBttn.addEventListener('click', () => testOne(monster))
+        homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))
 }
 
 

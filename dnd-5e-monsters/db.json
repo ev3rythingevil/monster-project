@@ -8782,28 +8782,12 @@
       "id": 4
     },
     {
-      "name": "Scott",
-      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
-      "Armor Class": "10",
-      "Hit Points": "100",
-      "Actions": "Awesome monster actions!",
-      "id": 5
-    },
-    {
       "name": "Frank",
       "img_url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSERIVFRUXGBcXFxUVGRgWGBYXFhgXFxUYGRcbHSggGBolHhcVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGy0lICUzLSswNS0tLS8tLy0tLy0vLystLS0vLS0tLS8tNS0tLS0tLS0tLS0vLS0tLS0vLS0uLf/AABEIAWIAjgMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAABgQFBwMIAQL/xABQEAACAQIDAwgECQgIBAYDAAABAgMAEQQFIQYSMQcTIkFRYXGBMpGhsQgUI0JScrKzwSQlM2Jjc4LRFTQ1ZHSSosJTg+HwQ5OjtMPxNlSE/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAQFAQIDBv/EADYRAAICAQAHBwMCBAcAAAAAAAABAhEDBAUSITFBUWFxgZGhsfATwdEUIjIzQuEjNFJicqLx/9oADAMBAAIRAxEAPwDcaqM6ztcOQu6WdhcDgAOFyat6y3lj2kXAS4N+a5znBIGG9ukLGYyLaH6bdVAN+Ezx5H3Ogptey3J9Z09lWEuNCjpSAeJArOcu5TMsK/KpNCTx6AYeuMkkeVdJNrcpk/R4qIdzmSP7VqAbsRmhvpILfWP4VxGZjrkHrf8AE0rR5rgH0XFweAnS/qLVKCQt6MoPg6GgL8ZmrHdXpMeGhNz4VIgDgnnIz5q9vIKNfOl6DDAEMrtccCLfhVnHjZhwkb/vzoC5iMbC53FPYysD9qvxKy6hUDacQslj3XBOtVn9IT/8Q+ofzoOYz/8AEb1f9aA6mV06ToQnaV4dmtu21AzWPqa3rH41X4x5JBZ5GI7P+zVe2GReLH1qKAYBmXY9vNx+Nd8NmRvq+n1r0qPLAvpTKo/WkQCo4z3AKbHF4f8A89T7moDRxiCRdXv4WNVMu0bIzDdRwvEAlW/EGljD7Z5PHqcUrEdUYlf2gEe2qfajl",
       "Armor Class": "22",
       "Hit Points": "666",
       "Actions": "",
       "id": 7
-    },
-    {
-      "name": "Frank",
-      "img_url": "",
-      "Armor Class": "",
-      "Hit Points": "",
-      "Actions": "",
-      "id": 8
     },
     {
       "name": "Frank",

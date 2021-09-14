@@ -26,12 +26,20 @@
         .then(monsters => getMonsters(monsters))
         
     const createBttn = document.querySelector('#monster-form')
-    createBttn.addEventListener('submit', newMonster)
+   // createBttn.addEventListener('submit', newMonster)
 
-    const diceBtn = document.querySelector('#dice-button-d20')
-    diceBtn.addEventListener('click', () => diceRoller(diceNum))
-
-        
+    const diceBtn20 = document.querySelector('#dice-button-d20')
+    const diceBtn100 = document.querySelector('#dice-button-d100')
+    const diceBtn12 = document.querySelector('#dice-button-d12')
+    const diceBtn10 = document.querySelector('#dice-button-d10')
+    const diceBtn8 = document.querySelector('#dice-button-d8')
+    const diceBtn6 = document.querySelector('#dice-button-d6')    
+    diceBtn20.addEventListener('click', () => diceRoller(20))
+    diceBtn100.addEventListener('click', () => diceRoller(100))
+    diceBtn12.addEventListener('click', () => diceRoller(12))
+    diceBtn10.addEventListener('click', () => diceRoller(10))
+    diceBtn8.addEventListener('click', () => diceRoller(8))
+    diceBtn6.addEventListener('click', () => diceRoller(6))   
     
 }
 
@@ -72,12 +80,12 @@ function testOne(obj){
 
 
 function diceRoller(diceNum){
-    const d20Num = Math.floor(Math.random() * diceNum);
+    const dNum = Math.floor(Math.random() * diceNum);
     const numSpan = document.querySelector('#d20-span')
-    if(d20Num === 0){
-        numSpan.innerHTML ='<em><strong>1</em></strong>' }
+    if(dNum === 0){
+        numSpan.innerHTML =`<em><strong>D${diceNum} = 1</em></strong>` }
     else{ 
-    numSpan.innerHTML= `<em><strong>${d20Num}</em></strong>`
+    numSpan.innerHTML= `<em><strong>D${diceNum} = ${dNum}</em></strong>`
     }
 }
 
@@ -92,7 +100,7 @@ function diceRoller(diceNum){
 //create another block for newly created monsters
 //larger text input box for Actions
 
-function newMonster(event){
+ function newMonster(event){
     event.preventDefault()
     const newName = event.target['new-name'].value
     const newImg = event.target['new-image'].value

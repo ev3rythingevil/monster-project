@@ -94,12 +94,12 @@ function testOne(obj){
 
 
 function diceRoller(diceNum){
-    const d20Num = Math.floor(Math.random() * diceNum);
+    const dNum = Math.floor(Math.random() * diceNum);
     const numSpan = document.querySelector('#d20-span')
-    if(d20Num === 0){
-        numSpan.innerHTML ='<em><strong>1</em></strong>' }
+    if(dNum === 0){
+        numSpan.innerHTML =`<em><strong>D${diceNum} = 1</em></strong>` }
     else{ 
-    numSpan.innerHTML= `<em><strong>${d20Num}</em></strong>`
+    numSpan.innerHTML= `<em><strong>D${diceNum} = ${dNum}</em></strong>`
     }
 }
 
@@ -114,7 +114,7 @@ function diceRoller(diceNum){
 //create another block for newly created monsters
 //larger text input box for Actions
 
-function newMonster(event){
+ function newMonster(event){
     event.preventDefault()
     const newName = event.target['new-name'].value
     const newImg = event.target['new-image'].value

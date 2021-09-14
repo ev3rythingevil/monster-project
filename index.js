@@ -27,11 +27,22 @@
         .then(monsters => getMonsters(monsters))
         
         fetchHomebrew()
-        const createBttn = document.querySelector('#monster-form')
-        createBttn.addEventListener('submit', newMonster)
 
-    // const diceBtn = document.querySelector('#dice-button-d20')
-    // diceBtn.addEventListener('click', () => diceRoller(diceNum))
+        const createBttn = document.querySelector('#monster-form')
+        // createBttn.addEventListener('submit', newMonster)
+     
+         const diceBtn20 = document.querySelector('#dice-button-d20')
+         const diceBtn100 = document.querySelector('#dice-button-d100')
+         const diceBtn12 = document.querySelector('#dice-button-d12')
+         const diceBtn10 = document.querySelector('#dice-button-d10')
+         const diceBtn8 = document.querySelector('#dice-button-d8')
+         const diceBtn6 = document.querySelector('#dice-button-d6')    
+         diceBtn20.addEventListener('click', () => diceRoller(20))
+         diceBtn100.addEventListener('click', () => diceRoller(100))
+         diceBtn12.addEventListener('click', () => diceRoller(12))
+         diceBtn10.addEventListener('click', () => diceRoller(10))
+         diceBtn8.addEventListener('click', () => diceRoller(8))
+         diceBtn6.addEventListener('click', () => diceRoller(6)) 
 
         
     

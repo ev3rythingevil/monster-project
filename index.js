@@ -96,9 +96,13 @@ function newMonster(event){
     event.preventDefault()
     const newName = event.target['new-name'].value
     const newImg = event.target['new-image'].value
+    const newArmor = event.target['new-armor'].value
+    const newHit = event.target['new-hit'].value
+    const newAction = event.target['new-action'].value
     const monsterObj = {
         name: newName,
         img_url: newImg,
+        [armor class]: newArmor,
     }
     testOne(monsterObj)
 }

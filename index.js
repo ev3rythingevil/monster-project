@@ -19,17 +19,19 @@
     
     document.addEventListener('DOMContentLoaded', init);
     const BASE_URL = 'http://localhost:3000/monsters'
+    const HOMEBREW_URL = 'http://localhost:3000/homebrew'
     
     function init(){
         fetch(BASE_URL)
         .then(resp => resp.json())
         .then(monsters => getMonsters(monsters))
         
-    const createBttn = document.querySelector('#monster-form')
-    createBttn.addEventListener('submit', newMonster)
+        fetchHomebrew()
+        const createBttn = document.querySelector('#monster-form')
+        createBttn.addEventListener('submit', newMonster)
 
-    const diceBtn = document.querySelector('#dice-button-d20')
-    diceBtn.addEventListener('click', () => diceRoller(diceNum))
+    // const diceBtn = document.querySelector('#dice-button-d20')
+    // diceBtn.addEventListener('click', () => diceRoller(diceNum))
 
         
     
@@ -65,8 +67,18 @@ function testOne(obj){
         monsterActions.append(legendHeader)
         legendary.innerHTML = obj['Legendary Actions']
         monsterActions.append(legendary)
+        
+    }
+    if(!!obj.id === true){
+        const deleteBtn = document.createElement('button')
+        deleteBtn.textContent = 'Delete'
+        deleteBtn.aaddEventListener('click', () => deleteMon(obj))
     }
 }
+
+// function deleteMon(obj){
+//     delete.obj
+// }
 
 // Dice Roller goes here:
 
@@ -102,7 +114,41 @@ function newMonster(event){
     const monsterObj = {
         name: newName,
         img_url: newImg,
-        [armor class]: newArmor,
+        "Armor Class": newArmor,
+        "Hit Points": newHit,
+        Actions: newAction,
     }
+
+    postObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(monsterObj),
+    }
+
+    fetch(HOMEBREW_URL, postObj)
+
     testOne(monsterObj)
+    makeHomebrewBttn(monsterObj)
+    
 }
+
+function fetchHomebrew(){
+    fetch(HOMEBREW_URL)
+    .then(resp => resp.json())
+    .then(data => {
+        data.forEach(obj => makeHomebrewBttn(obj))
+    })
+}
+
+function makeHomebrewBttn(monster){
+        const homebrewBttn = document.createElement('button')
+        homebrewBttn.textContent = monster.name
+        const homebrewList = document.querySelector('#homebrew-monsters')
+        homebrewList.append(homebrewBttn)
+        homebrewBttn.addEventListener('click', () => testOne(obj))
+}
+
+// deletebutton needs to delete the card as well as the object inside the JSON server
+// put inside of testOne

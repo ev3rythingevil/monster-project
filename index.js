@@ -27,8 +27,10 @@
         .then(monsters => getMonsters(monsters))
         
 
+        fetchHomebrew();
+
     const createBttn = document.querySelector('#monster-form')
-    // createBttn.addEventListener('submit', newMonster)
+     createBttn.addEventListener('submit', newMonster)
      
     const diceBtn20 = document.querySelector('#dice-button-d20')
     const diceBtn100 = document.querySelector('#dice-button-d100')
@@ -81,15 +83,19 @@ function testOne(obj){
     }
     if(!!obj.id === true){
         const deleteBtn = document.createElement('button')
+        const monForm = document.querySelector('#monster-card')
         deleteBtn.textContent = 'Delete'
-        deleteBtn.aaddEventListener('click', () => deleteMon(obj))
+        deleteBtn.addEventListener('click', () => deleteMon(obj, obj))
+        monForm.append(deleteBtn)
     }
 }
 
-// function deleteMon(obj){
-//     delete.obj
-// }
-
+ function deleteMon(obj){
+    
+    fetch(`${HOMEBREW_URL}/${obj.id}`,{
+        method:'DELETE',
+ })
+ }
 // Dice Roller goes here:
 
 
@@ -157,8 +163,7 @@ function makeHomebrewBttn(monster){
         homebrewBttn.textContent = monster.name
         const homebrewList = document.querySelector('#homebrew-monsters')
         homebrewList.append(homebrewBttn)
-        homebrewBttn.addEventListener('click', () => testOne(obj))
+        homebrewBttn.addEventListener('click', () => testOne(monster))
 }
 
-// deletebutton needs to delete the card as well as the object inside the JSON server
-// put inside of testOne
+

@@ -27,10 +27,10 @@
         .then(monsters => getMonsters(monsters))
         
 
-        fetchHomebrew();
+    fetchHomebrew();
 
     const createBttn = document.querySelector('#monster-form')
-     createBttn.addEventListener('submit', newMonster)
+    createBttn.addEventListener('submit', newMonster)
      
     const diceBtn20 = document.querySelector('#dice-button-d20')
     const diceBtn100 = document.querySelector('#dice-button-d100')
@@ -44,13 +44,9 @@
     diceBtn10.addEventListener('click', () => diceRoller(10))
     diceBtn8.addEventListener('click', () => diceRoller(8))
     diceBtn6.addEventListener('click', () => diceRoller(6)) 
-
-        
-    
 }
 
-function getMonsters(monsters){
-    
+function getMonsters(monsters){  
     monsters.forEach(obj => {
         const monsterItem = document.createElement('button')
         monsterItem.textContent = obj.name
@@ -62,24 +58,32 @@ function getMonsters(monsters){
 
 
 function testOne(obj){
-    const monsterName = document.querySelector('#monster-name')
-    const monsterImage = document.querySelector('#monster-image')
-    const monsterHP = document.querySelector('#hit-points')
-    const monsterAC = document.querySelector('#armor-class')
-    const monsterActions = document.querySelector('#monster-actions')
+    // trying to figure how to delete the last populated monster
+    if(!!document.querySelector('#monsterCardDiv') === true){
+        monsterCard.removeChild(monsterCardDiv)
+    }
+
+    const monsterCard = document.querySelector('#monster-card')
+    const monsterCardDiv = document.createElement('div')
+    const monsterName = document.createElement('h1')
+    const monsterImage = document.createElement('img')
+    const monsterHP = document.createElement('span')
+    const monsterAC = document.createElement('span')
+    const monsterActions = document.createElement('p')
     monsterName.textContent = obj.name
     monsterImage.src = obj.img_url
     monsterHP.innerHTML = '<strong><em>HP: </em></strong>' + obj['Hit Points'] 
     monsterAC.innerHTML = '<strong><em>AC: </em></strong>' + obj['Armor Class']
     monsterActions.innerHTML = obj.Actions
+    monsterCardDiv.append(monsterName, monsterImage, monsterHP, monsterAC, monsterActions)
+    monsterCard.append(monsterCardDiv)
     if(!!obj['Legendary Actions'] === true){
         const legendary = document.createElement('p')
         const legendHeader = document.createElement('h3')
         legendHeader.textContent = 'Legendary Actions'
         monsterActions.append(legendHeader)
         legendary.innerHTML = obj['Legendary Actions']
-        monsterActions.append(legendary)
-        
+        monsterActions.append(legendary) 
     }
     if(!!obj.id === true){
         const deleteBtn = document.createElement('button')

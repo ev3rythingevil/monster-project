@@ -8747,5 +8747,55 @@
       "Actions": "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) bludgeoning damage.</p>",
       "img_url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/71/1000/1000/636252733510786769.jpeg"
     }
+  ],
+  "homebrew": [
+    {
+      "name": "Scott",
+      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
+      "Armor Class": "10",
+      "Hit Points": "100",
+      "Actions": "Awesome monster actions!",
+      "id": 1
+    },
+    {
+      "name": "Scott",
+      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
+      "Armor Class": "10",
+      "Hit Points": "100",
+      "Actions": "Awesome monster actions!",
+      "id": 2
+    },
+    {
+      "name": "Scott",
+      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
+      "Armor Class": "10",
+      "Hit Points": "100",
+      "Actions": "Awesome monster actions!",
+      "id": 3
+    },
+    {
+      "name": "Scott",
+      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
+      "Armor Class": "10",
+      "Hit Points": "100",
+      "Actions": "Awesome monster actions!",
+      "id": 4
+    },
+    {
+      "name": "Scott",
+      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
+      "Armor Class": "10",
+      "Hit Points": "100",
+      "Actions": "Awesome monster actions!",
+      "id": 5
+    },
+    {
+      "name": "Hathor",
+      "img_url": "https://img.pixers.pics/pho_wat(s3:700/FO/43/36/93/78/700_FO43369378_f43d5692245c7bd7ad7534d5add98386.jpg,572,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,352,650,jpg)/stickers-3d-monster.jpg.jpg",
+      "Armor Class": "20",
+      "Hit Points": "500",
+      "Actions": "Exceptional Actions!",
+      "id": 6
+    }
   ]
 }

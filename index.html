@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="style.css">
-        <script defer src='index.js'></script>
+        <script src='index.js'></script>
         <title>More Monsters</title>
         <meta charset="UTF-8">
     </head>
@@ -28,24 +28,31 @@
                 On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.
             </p>
         </div>
+        <div id='buttons'>
+            <p class='dice-block' id='d20-span'></p>
+            <button id="dice-button-d100">d100</button>
+            <button id="dice-button-d20">d20</button>
+            <button id="dice-button-d12">d12</button>
+            <button id="dice-button-d10">d10</button>
+            <button id="dice-button-d8">d8</button>
+            <button id="dice-button-d6">d6</button>
+        </div>
         <div>
-            <button id="dice-button">Roll Dice</button>
             <form id="monster-form">
                 <label for="new-name">Monster Name</label><br>
                 <input type="text" id="new-name" name="new-name"><br>
                 <label for="new-image">Image URL</label><br>
-                <input type="text" id="new-image" name="new-image"><br>
-                <label for="new-armor">Armor Class</label><br>
-                <input type="text" id="new-armor" name="new-armor"><br>
-                <label for="new-hit">Hit Points</label><br>
-                <input type="text" id="new-hit" name="new-hit"><br>
-                <label for="new-action">Actions</label><br>
-                <textarea id="new-action" rows="10" cols="50" name="new-action"></textarea>
-                <input type="submit" id="create-bttn" value="Create Your Monster!">
+                <input type="text" id="new-image" name="new-image">
+                <input type="submit" id="create-bttn" value="Create A Monster!">
             </form>
         </div>
         <div id="monster-list">
+            <h2>Monster List</h2>
             <ul id="monster-name-list"></ul>
+        </div>
+        <div id='homebrew'>
+            <h2>Homebrew Monsters</h2>
+            <ul id='homebrew-monsters'></ul>
         </div>
     </body>
 </html>

@@ -19,11 +19,11 @@
 
 document.addEventListener('DOMContentLoaded', init);
 const BASE_URL = 'http://localhost:3000/monsters'
+
 function init(){
     fetch(BASE_URL)
     .then(resp => resp.json())
     .then(monsters => getMonsters(monsters))
-    
 }
 
 function getMonsters(monsters){
@@ -34,7 +34,7 @@ function getMonsters(monsters){
         const monsterList = document.querySelector('#monster-name-list')
         monsterList.append(monsterItem)
         monsterItem.addEventListener('click', () => testOne(obj))
-})
+    })
 }
 
 
@@ -44,17 +44,34 @@ function testOne(obj){
     const monsterHP = document.querySelector('#hit-points')
     const monsterAC = document.querySelector('#armor-class')
     const monsterActions = document.querySelector('#monster-actions')
-       monsterName.textContent = obj.name
-       monsterImage.src = obj.img_url
-       monsterHP.innerHTML = obj['Hit Points']
-       monsterAC.innerHTML = obj['Armor Class']
-       monsterActions.innerHTML = obj.Actions
-       if(!!obj['Legendary Actions'] === true){
-           const legendary = document.createElement('p')
-           const legendHeader = document.createElement('h3')
-           legendHeader.textContent = 'Legendary Actions'
-           monsterActions.append(legendHeader)
-           legendary.innerHTML = obj['Legendary Actions']
-           monsterActions.append(legendary)
-       }
+    monsterName.textContent = obj.name
+    monsterImage.src = obj.img_url
+    monsterHP.innerHTML = obj['Hit Points']
+    monsterAC.innerHTML = obj['Armor Class']
+    monsterActions.innerHTML = obj.Actions
+    if(!!obj['Legendary Actions'] === true){
+        const legendary = document.createElement('p')
+        const legendHeader = document.createElement('h3')
+        legendHeader.textContent = 'Legendary Actions'
+        monsterActions.append(legendHeader)
+        legendary.innerHTML = obj['Legendary Actions']
+        monsterActions.append(legendary)
+    }
+}
+
+
+//started work on Monster Create Section
+//had to defer script to get this working.  Consider if this is necessary or if we should include this with DOMContentLoaded
+const createBttn = document.querySelector('#monster-form')
+createBttn.addEventListener('submit', newMonster)
+
+function newMonster(event){
+    event.preventDefault()
+    const newName = event.target['new-name'].value
+    const newImg = event.target['new-image'].value
+    const monsterObj = {
+        name: newName,
+        img_url: newImg,
+    }
+    testOne(monsterObj)
 }

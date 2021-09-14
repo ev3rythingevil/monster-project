@@ -26,9 +26,10 @@
         .then(resp => resp.json())
         .then(monsters => getMonsters(monsters))
         
+    fetchHomebrew()
 
     const createBttn = document.querySelector('#monster-form')
-    // createBttn.addEventListener('submit', newMonster)
+    createBttn.addEventListener('submit', newMonster)
      
     const diceBtn20 = document.querySelector('#dice-button-d20')
     const diceBtn100 = document.querySelector('#dice-button-d100')
@@ -76,13 +77,12 @@ function testOne(obj){
         legendHeader.textContent = 'Legendary Actions'
         monsterActions.append(legendHeader)
         legendary.innerHTML = obj['Legendary Actions']
-        monsterActions.append(legendary)
-        
+        monsterActions.append(legendary) 
     }
     if(!!obj.id === true){
         const deleteBtn = document.createElement('button')
         deleteBtn.textContent = 'Delete'
-        deleteBtn.aaddEventListener('click', () => deleteMon(obj))
+        deleteBtn.addEventListener('click', () => deleteMon(obj))
     }
 }
 
@@ -128,7 +128,7 @@ function newMonster(event){
         "Hit Points": newHit,
         Actions: newAction,
     }
-
+debugger;
     postObj = {
         method: 'POST',
         headers: {
@@ -136,12 +136,10 @@ function newMonster(event){
         },
         body: JSON.stringify(monsterObj),
     }
-
     fetch(HOMEBREW_URL, postObj)
 
     testOne(monsterObj)
-    makeHomebrewBttn(monsterObj)
-    
+    makeHomebrewBttn(monsterObj) 
 }
 
 function fetchHomebrew(){
@@ -157,7 +155,7 @@ function makeHomebrewBttn(monster){
         homebrewBttn.textContent = monster.name
         const homebrewList = document.querySelector('#homebrew-monsters')
         homebrewList.append(homebrewBttn)
-        homebrewBttn.addEventListener('click', () => testOne(obj))
+        homebrewBttn.addEventListener('click', () => testOne(monster))
 }
 
 // deletebutton needs to delete the card as well as the object inside the JSON server

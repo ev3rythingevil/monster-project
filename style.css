@@ -46,6 +46,11 @@ h2{
     font-style: italic;
     font-variant: small-caps;
     text-transform: none;
+    background-image: url('https://p0.pxfuel.com/preview/246/734/395/fantasy-dragons-rock-mountains.jpg');
+    padding: 2.3em;
+    background-size:cover;
+    box-shadow: 0 8px 16px 0 #000000;
+    border: 2px solid #000000;
 }
 
 body{
@@ -114,8 +119,23 @@ span{
 }
 
 #buttons{
+    width: 20%;
     display:inline-block;
     padding: 30px;
     margin: 30px;
-    border: 5px solid #CE5937
+    margin-top: 80px;
+    border: 5px solid #CE5937;
+    text-shadow: 2px 2px 7px #CE5937;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 2em;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: small-caps;
+    text-transform: none;
+    
 }

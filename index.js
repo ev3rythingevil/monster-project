@@ -58,8 +58,8 @@ function getMonsters(monsters){
 
 
 function monsterCardMaker(obj){
-    if(!!document.querySelector('#monster-card') === true){ // this will remove the first div with ID 'monster-card'
-        document.querySelector('#monster-card').remove() //    next div is created with moster after
+    if(!!document.querySelector('#monster-card') === true){ 
+        document.querySelector('#monster-card').remove() 
     }
 
     const monsterBody = document.querySelector('#monster-body')
@@ -74,7 +74,7 @@ function monsterCardMaker(obj){
     monsterImage.src = obj.img_url
     monsterHP.innerHTML = '<strong><em>HP: </em></strong>' + obj['Hit Points'] 
     monsterAC.innerHTML = '<strong><em>AC: </em></strong>' + obj['Armor Class']
-    monsterActions.innerHTML = obj.Actions
+    monsterActions.innerHTML = obj.Actions // This is probably dangerous 
     monsterCardDiv.id = "monster-card"
 
     monsterCardDiv.append(monsterName, monsterImage, monsterHP, monsterAC, monsterActions)
@@ -97,14 +97,14 @@ function monsterCardMaker(obj){
     }
 }
 
- function deleteMon(card,obj){
-    card.remove()
-    fetch(`${HOMEBREW_URL}/${obj.id}`,{
-        method:'DELETE',
- })
- }
-// Dice Roller goes here:
+ function deleteMon(card, obj){
+     fetch(`${HOMEBREW_URL}/${obj.id}`,{
+         method:'DELETE',
+    })
 
+    card.remove()
+    document.getElementById(`${obj.id}`).remove()
+}
 
 function diceRoller(diceNum){
     const dNum = Math.floor(Math.random() * diceNum);
@@ -151,8 +151,10 @@ function diceRoller(diceNum){
     }
 
     fetch(HOMEBREW_URL, postObj)
+    .then(resp => resp.json())
+    .then(data => monsterCardMaker(data))
 
-    testOne(monsterObj)
+    
     makeHomebrewBttn(monsterObj)
     
 }
@@ -168,6 +170,7 @@ function fetchHomebrew(){
 function makeHomebrewBttn(monster){
         const homebrewBttn = document.createElement('button')
         homebrewBttn.textContent = monster.name
+        homebrewBttn.id = monster.id
         const homebrewList = document.querySelector('#homebrew-monsters')
         homebrewList.append(homebrewBttn)
         homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))

@@ -44,8 +44,8 @@
     diceBtn10.addEventListener('click', () => diceRoller(10))
     diceBtn8.addEventListener('click', () => diceRoller(8))
     diceBtn6.addEventListener('click', () => diceRoller(6)) 
-}
 
+    }
 function getMonsters(monsters){  
     monsters.forEach(obj => {
         const monsterItem = document.createElement('li')
@@ -77,8 +77,8 @@ function monsterCardMaker(obj){
     monsterAC.innerHTML = '<strong><em>AC: </em></strong>' + obj['Armor Class']
     monsterActions.innerHTML = obj.Actions // This is probably dangerous 
     monsterCardDiv.id = "monster-card"
-
-    monsterCardDiv.append(monsterName, monsterImage, monsterHP, monsterAC, monsterActions)
+    monsterActions.append(monsterHP, monsterAC)
+    monsterCardDiv.append(monsterName, monsterImage, monsterActions)
     monsterBody.append(monsterCardDiv)
     
     if(!!obj['Legendary Actions'] === true){

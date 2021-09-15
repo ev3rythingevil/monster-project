@@ -24,3 +24,56 @@ h1{
 body{
     background-color: #FCF5E5;
 }
+
+#monster-body {
+    display: flex;
+    width: 40%;
+    background-color: blue;
+    margin: 30px;
+    padding: 30px;
+    text-align: center;
+    
+}
+#monster-body img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#monster-list {
+    display: inline-block;
+    width: 40%;
+}
+
+img {
+    width: 50%;
+    height: auto;
+}
+
+button {
+    border: none;
+    display: inline-block;
+    background-color: #FCF5E5;
+    font-size: 16px;
+    padding: 5px 5px;
+    transition: 0.6s;
+}
+
+button:hover {
+    box-shadow: 0 8px 16px 0 #CE5937;
+    border: 2px solid #CE5937
+}
+
+li {
+    padding: 2px 2px;
+}
+
+ul {
+    column-count: 3;
+    list-style-type: none;
+}
+
+.flex-box {
+    display: flex;
+}
+
+

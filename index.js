@@ -48,11 +48,13 @@
 
 function getMonsters(monsters){  
     monsters.forEach(obj => {
-        const monsterItem = document.createElement('button')
-        monsterItem.textContent = obj.name
+        const monsterItem = document.createElement('li')
+        const monBtn = document.createElement('button')
+        monBtn.textContent  = obj.name
+        monsterItem.append(monBtn)
         const monsterList = document.querySelector('#monster-name-list')
         monsterList.append(monsterItem)
-        monsterItem.addEventListener('click', () => monsterCardMaker(obj))
+        monBtn.addEventListener('click', () => monsterCardMaker(obj))
     })
 }
 

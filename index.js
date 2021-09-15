@@ -24,7 +24,10 @@
     function init(){
         fetch(BASE_URL)
         .then(resp => resp.json())
-        .then(monsters => getMonsters(monsters))
+        .then(monsters => {
+            getMonsters(monsters)
+            populateMenu(monsters)
+        })
         
 
     fetchHomebrew();
@@ -174,4 +177,25 @@ function makeHomebrewBttn(monster){
         const homebrewList = document.querySelector('#homebrew-monsters')
         homebrewList.append(homebrewBttn)
         homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))
+}
+
+function populateMenu(monsterobj){
+    
+    monsterobj.forEach((monster) => {
+    
+    
+        const selectionMenu = document.querySelector('#selection-menu')
+        const selectionOption = document.createElement('option')
+
+        selectionOption.value = monster.Challenge
+        selectionOption.innerHTML = monster.Challenge
+        selectionMenu.append(selectionOption)
+
+        selectionMenu.addEventListener('select', () => filterMonsters(monster))
+    })
+}
+
+function filterMonsters(monster, event){
+    console.log(event)
+    console.log(monster)
 }

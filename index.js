@@ -62,8 +62,6 @@ function monsterCardMaker(obj){
    // if(!!document.querySelector('#monsterCardDiv') === true){
    //      monsterCard.removeChild(monsterCardDiv)
     // }
-    const fillerImg = document.querySelector('#filler-image')
-    fillerImg.remove()
     const monsterCard = document.querySelector('#monster-card')
     const monsterCardDiv = document.createElement('div')
     const monsterName = document.createElement('h1')
@@ -170,5 +168,3 @@ function makeHomebrewBttn(monster){
         homebrewList.append(homebrewBttn)
         homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))
 }
-
-

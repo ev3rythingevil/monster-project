@@ -29,9 +29,9 @@
 
     fetchHomebrew();
 
+    
     const createBttn = document.querySelector('#monster-form')
     createBttn.addEventListener('submit', newMonster)
-     
     const diceBtn20 = document.querySelector('#dice-button-d20')
     const diceBtn100 = document.querySelector('#dice-button-d100')
     const diceBtn12 = document.querySelector('#dice-button-d12')
@@ -55,7 +55,6 @@ function getMonsters(monsters){
         monsterItem.addEventListener('click', () => monsterCardMaker(obj))
     })
 }
-
 
 function monsterCardMaker(obj){
     if(!!document.querySelector('#monster-card') === true){ 
@@ -97,7 +96,7 @@ function monsterCardMaker(obj){
     }
 }
 
- function deleteMon(card, obj){
+function deleteMon(card, obj){
      fetch(`${HOMEBREW_URL}/${obj.id}`,{
          method:'DELETE',
     })
@@ -152,11 +151,10 @@ function diceRoller(diceNum){
 
     fetch(HOMEBREW_URL, postObj)
     .then(resp => resp.json())
-    .then(data => monsterCardMaker(data))
-
-    
-    makeHomebrewBttn(monsterObj)
-    
+    .then(data => {
+        makeHomebrewBttn(data)
+        monsterCardMaker(data)
+    })
 }
 
 function fetchHomebrew(){

@@ -58,24 +58,28 @@ function getMonsters(monsters){
 
 
 function monsterCardMaker(obj){
-    // trying to figure how to delete the last populated monster
-   // if(!!document.querySelector('#monsterCardDiv') === true){
-   //      monsterCard.removeChild(monsterCardDiv)
-    // }
-    const monsterCard = document.querySelector('#monster-card')
+    if(!!document.querySelector('#monster-card') === true){ // this will remove the first div with ID 'monster-card'
+        document.querySelector('#monster-card').remove() //    next div is created with moster after
+    }
+
+    const monsterBody = document.querySelector('#monster-body')
     const monsterCardDiv = document.createElement('div')
     const monsterName = document.createElement('h1')
     const monsterImage = document.createElement('img')
     const monsterHP = document.createElement('span')
     const monsterAC = document.createElement('span')
     const monsterActions = document.createElement('p')
+    
     monsterName.textContent = obj.name
     monsterImage.src = obj.img_url
     monsterHP.innerHTML = '<strong><em>HP: </em></strong>' + obj['Hit Points'] 
     monsterAC.innerHTML = '<strong><em>AC: </em></strong>' + obj['Armor Class']
     monsterActions.innerHTML = obj.Actions
+    monsterCardDiv.id = "monster-card"
+
     monsterCardDiv.append(monsterName, monsterImage, monsterHP, monsterAC, monsterActions)
-    monsterCard.append(monsterCardDiv)
+    monsterBody.append(monsterCardDiv)
+    
     if(!!obj['Legendary Actions'] === true){
         const legendary = document.createElement('p')
         const legendHeader = document.createElement('h3')

@@ -8764,22 +8764,6 @@
       "Hit Points": "100",
       "Actions": "Awesome monster actions!",
       "id": 2
-    },
-    {
-      "name": "Scott",
-      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
-      "Armor Class": "10",
-      "Hit Points": "100",
-      "Actions": "Awesome monster actions!",
-      "id": 3
-    },
-    {
-      "name": "Frank",
-      "img_url": "",
-      "Armor Class": "",
-      "Hit Points": "",
-      "Actions": "",
-      "id": 9
     }
   ]
 }

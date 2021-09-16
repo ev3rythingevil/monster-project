@@ -24,10 +24,7 @@ const HOMEBREW_URL = 'http://localhost:3000/homebrew'
 function init(){
     fetch(BASE_URL)
     .then(resp => resp.json())
-    .then(monsters => {
-        getMonsters(monsters)
-        // populateMenu(monsters)
-    })
+    .then(monsters => getMonsters(monsters))
         
     filterMonsterMenu();
     fetchHomebrew();
@@ -49,6 +46,7 @@ function init(){
     diceBtn6.addEventListener('click', () => diceRoller(6)) 
 
 }
+
 function getMonsters(monsters){  
     monsters.forEach(obj => {
         const monsterItem = document.createElement('li')
@@ -83,6 +81,7 @@ function monsterCardMaker(obj){
     monsterActions.append(monsterHP, monsterAC)
     monsterCardDiv.append(monsterName, monsterImage, monsterActions)
     monsterBody.append(monsterCardDiv)
+
     if(!!obj['Legendary Actions'] === true){
         const legendary = document.createElement('p')
         const legendHeader = document.createElement('h3')
@@ -91,6 +90,7 @@ function monsterCardMaker(obj){
         legendary.innerHTML = obj['Legendary Actions']
         monsterActions.append(legendary) 
     }
+
     if(!!obj.id === true){
         const deleteBtn = document.createElement('button')
         const monForm = document.querySelector('#monster-card')
@@ -167,7 +167,6 @@ function makeHomebrewBttn(monster){
         homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))
 }
 
-
 function filterMonsterMenu() {
     const selectionMenu = document.querySelector('#selection-menu')
     selectionMenu.addEventListener('change', filterMonsters)
@@ -179,36 +178,18 @@ function filterMonsters(event){
     fetch(BASE_URL)
         .then(resp => resp.json())
         .then(monsters => {
-            let challengeList = monsters.filter(obj => obj.Challenge === selection)
-            console.log('challenge list', challengeList)
-            const list = document.querySelector('#monster-name-list')
-            console.log('monster list', list)
-
-            while(document.querySelector('li')){
-                document.querySelector('li').remove()
+            if(selection === 'Show All'){
+                getMonsters(monsters)
             }
+            else{
+                let challengeList = monsters.filter(obj => obj.Challenge === selection)
+                const list = document.querySelector('#monster-name-list')
+                
+                while(document.querySelector('li')){
+                    document.querySelector('li').remove()
+                }
 
-            getMonsters(challengeList)
+                getMonsters(challengeList)
+            }
         })
 }
-
-// function populateMenu(monsterobj){
-    
-//     monsterobj.forEach((monster) => {
-    
-    
-//         const selectionMenu = document.querySelector('#selection-menu')
-//         const selectionOption = document.createElement('option')
-
-//         selectionOption.value = monster.Challenge
-//         selectionOption.innerHTML = monster.Challenge
-//         selectionMenu.append(selectionOption)
-
-//         selectionMenu.addEventListener('select', () => filterMonsters(monster))
-//     })
-// }
-
-// function filterMonsters(monster, event){
-//     console.log(event)
-//     console.log(monster)
-// }

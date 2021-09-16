@@ -8748,22 +8748,5 @@
       "img_url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/71/1000/1000/636252733510786769.jpeg"
     }
   ],
-  "homebrew": [
-    {
-      "name": "Scott",
-      "img_url": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957",
-      "Armor Class": "100",
-      "Hit Points": "200",
-      "Actions": "",
-      "id": 1
-    },
-    {
-      "name": "Tim",
-      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTK16GAlu_1SMUSLMXi2IE4XKEWEsR4aAmeA&usqp=CAU",
-      "Armor Class": "10",
-      "Hit Points": "45",
-      "Actions": "Tim is your friend, please don't hurt Tim",
-      "id": 2
-    }
-  ]
+  "homebrew": []
 }

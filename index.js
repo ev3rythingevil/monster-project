@@ -17,19 +17,19 @@
     
     // if a monster has legendary actions, create a element for it, otherwise ignore
     
-    document.addEventListener('DOMContentLoaded', init);
-    const BASE_URL = 'http://localhost:3000/monsters'
-    const HOMEBREW_URL = 'http://localhost:3000/homebrew'
+document.addEventListener('DOMContentLoaded', init);
+const BASE_URL = 'http://localhost:3000/monsters'
+const HOMEBREW_URL = 'http://localhost:3000/homebrew'
     
-    function init(){
-        fetch(BASE_URL)
-        .then(resp => resp.json())
-        .then(monsters => {
-            getMonsters(monsters)
-            populateMenu(monsters)
-        })
+function init(){
+    fetch(BASE_URL)
+    .then(resp => resp.json())
+    .then(monsters => {
+        getMonsters(monsters)
+        // populateMenu(monsters)
+    })
         
-
+    filterMonsterMenu();
     fetchHomebrew();
 
     
@@ -48,7 +48,7 @@
     diceBtn8.addEventListener('click', () => diceRoller(8))
     diceBtn6.addEventListener('click', () => diceRoller(6)) 
 
-    }
+}
 function getMonsters(monsters){  
     monsters.forEach(obj => {
         const monsterItem = document.createElement('li')
@@ -83,7 +83,6 @@ function monsterCardMaker(obj){
     monsterActions.append(monsterHP, monsterAC)
     monsterCardDiv.append(monsterName, monsterImage, monsterActions)
     monsterBody.append(monsterCardDiv)
-    
     if(!!obj['Legendary Actions'] === true){
         const legendary = document.createElement('p')
         const legendHeader = document.createElement('h3')
@@ -119,17 +118,6 @@ function diceRoller(diceNum){
     numSpan.innerHTML= `<em><strong>D${diceNum} = ${dNum}</em></strong>`
     }
 }
-
-
-
-
-
-//started work on Monster Create Section
-//had to defer script to get this working.  Consider if this is necessary or if we should include this with DOMContentLoaded
-//Create monster needs a button immediately
-//add delete more new monsters
-//create another block for newly created monsters
-//larger text input box for Actions
 
  function newMonster(event){
     event.preventDefault()
@@ -179,23 +167,48 @@ function makeHomebrewBttn(monster){
         homebrewBttn.addEventListener('click', () => monsterCardMaker(monster))
 }
 
-function populateMenu(monsterobj){
-    
-    monsterobj.forEach((monster) => {
-    
-    
-        const selectionMenu = document.querySelector('#selection-menu')
-        const selectionOption = document.createElement('option')
 
-        selectionOption.value = monster.Challenge
-        selectionOption.innerHTML = monster.Challenge
-        selectionMenu.append(selectionOption)
-
-        selectionMenu.addEventListener('select', () => filterMonsters(monster))
-    })
+function filterMonsterMenu() {
+    const selectionMenu = document.querySelector('#selection-menu')
+    selectionMenu.addEventListener('change', filterMonsters)
 }
 
-function filterMonsters(monster, event){
-    console.log(event)
-    console.log(monster)
+function filterMonsters(event){
+    const selection = event.target.value
+
+    fetch(BASE_URL)
+        .then(resp => resp.json())
+        .then(monsters => {
+            let challengeList = monsters.filter(obj => obj.Challenge === selection)
+            console.log('challenge list', challengeList)
+            const list = document.querySelector('#monster-name-list')
+            console.log('monster list', list)
+
+            while(document.querySelector('li')){
+                document.querySelector('li').remove()
+            }
+
+            getMonsters(challengeList)
+        })
 }
+
+// function populateMenu(monsterobj){
+    
+//     monsterobj.forEach((monster) => {
+    
+    
+//         const selectionMenu = document.querySelector('#selection-menu')
+//         const selectionOption = document.createElement('option')
+
+//         selectionOption.value = monster.Challenge
+//         selectionOption.innerHTML = monster.Challenge
+//         selectionMenu.append(selectionOption)
+
+//         selectionMenu.addEventListener('select', () => filterMonsters(monster))
+//     })
+// }
+
+// function filterMonsters(monster, event){
+//     console.log(event)
+//     console.log(monster)
+// }

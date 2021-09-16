@@ -29,7 +29,18 @@ function init(){
     filterMonsterMenu();
     fetchHomebrew();
 
-    
+    let i = 0
+    const modHeader = document.querySelector('#mod-header')
+    const plus = document.querySelector('#plus')
+    const minus = document.querySelector('#minus')
+    plus.addEventListener('click', ()=> {
+        i++
+        modHeader.textContent = `+${i}`
+        })
+    minus.addEventListener('click', ()=>{
+        i--
+        modHeader.textContent = `${i}`
+    })    
     const createBttn = document.querySelector('#monster-form')
     createBttn.addEventListener('submit', newMonster)
     const diceBtn20 = document.querySelector('#dice-button-d20')
@@ -44,7 +55,22 @@ function init(){
     diceBtn10.addEventListener('click', () => diceRoller(10))
     diceBtn8.addEventListener('click', () => diceRoller(8))
     diceBtn6.addEventListener('click', () => diceRoller(6)) 
-
+   
+            
+            function diceRoller(diceNum){
+                const dNum = Math.floor(Math.random() * diceNum+1);
+                const numSpan = document.querySelector('#d20-span')
+                    if(i != 0){
+                        const modRoll = i + dNum
+                        numSpan.innerHTML = `<em><strong>D${diceNum}+${i} = ${modRoll} `
+                    }
+                else{ 
+                numSpan.innerHTML= `<em><strong>D${diceNum} = ${dNum}</em></strong>`
+                }
+            i = 0
+            modHeader.textContent = 'Modifier';    
+            }
+        
 }
 
 function getMonsters(monsters){  
@@ -101,25 +127,20 @@ function monsterCardMaker(obj){
 }
 
 function deleteMon(card, obj){
-     fetch(`${HOMEBREW_URL}/${obj.id}`,{
-         method:'DELETE',
+    fetch(`${HOMEBREW_URL}/${obj.id}`,{
+        method:'DELETE',
     })
 
     card.remove()
     document.getElementById(`${obj.id}`).remove()
 }
 
-function diceRoller(diceNum){
-    const dNum = Math.floor(Math.random() * diceNum);
-    const numSpan = document.querySelector('#d20-span')
-    if(dNum === 0){
-        numSpan.innerHTML =`<em><strong>D${diceNum} = 1</em></strong>` }
-    else{ 
-    numSpan.innerHTML= `<em><strong>D${diceNum} = ${dNum}</em></strong>`
-    }
-}
 
- function newMonster(event){
+
+
+
+
+function newMonster(event){
     event.preventDefault()
     const newName = event.target['new-name'].value
     const newImg = event.target['new-image'].value

@@ -62,7 +62,7 @@ body{
     width: 55%;
     float:right;
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     border: 2px solid #CE5937;
     box-shadow: 0 8px 16px 0 #CE5937;
@@ -148,10 +148,10 @@ span{
     background-image: url('https://media.istockphoto.com/photos/stone-wall-picture-id521079280?k=20&m=521079280&s=612x612&w=0&h=Pc5aEVaf-49kdwIjbz3qY4q6hiVZMtqzMQobuMNqoTw=');
 }
 form{
+    display: block;
     margin-left: 30%;
     margin-right:30%;
-    border: 2px solid #000000;
-    box-shadow: 0 8px 16px 0 #000000;
+    
 }
 
 #homebrew-monsters{

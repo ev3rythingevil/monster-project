@@ -8748,5 +8748,22 @@
       "img_url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/71/1000/1000/636252733510786769.jpeg"
     }
   ],
-  "homebrew": []
+  "homebrew": [
+    {
+      "name": "Hathor",
+      "img_url": "https://www.ancient-origins.net/sites/default/files/field/image/Hathor-goddess.jpg",
+      "Armor Class": "20",
+      "Hit Points": "410",
+      "Actions": "",
+      "id": 1
+    },
+    {
+      "name": "Scott",
+      "img_url": "https://monsterlegacy.files.wordpress.com/2014/02/homunculusconceptzar.jpg",
+      "Armor Class": "21",
+      "Hit Points": "364",
+      "Actions": "",
+      "id": 2
+    }
+  ]
 }

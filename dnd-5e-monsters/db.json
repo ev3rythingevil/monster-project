@@ -8756,6 +8756,14 @@
       "Hit Points": "200",
       "Actions": "",
       "id": 1
+    },
+    {
+      "name": "Tim",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTK16GAlu_1SMUSLMXi2IE4XKEWEsR4aAmeA&usqp=CAU",
+      "Armor Class": "10",
+      "Hit Points": "45",
+      "Actions": "Tim is your friend, please don't hurt Tim",
+      "id": 2
     }
   ]
 }

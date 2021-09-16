@@ -64,7 +64,10 @@ body{
     margin: 10px;
     padding: 10px;
     text-align: center;
-    
+    border: 2px solid #CE5937;
+    box-shadow: 0 8px 16px 0 #CE5937;
+    min-height: 80%;
+    margin-bottom: 80px;
 }
 #monster-body img{
     margin-left: auto;
@@ -75,14 +78,16 @@ body{
     display: inline;
     float: left;
     width: 40%;
-    height: 50rem;
+    max-height: 50rem;
     overflow:scroll;
     overflow-x: hidden;
+    border: 2px solid #000000;
+    box-shadow: 0 8px 16px 0 #000000;
 }
 
 
 img {
-    width: 50%;
+    max-width:50%;
     height: auto;
 }
 
@@ -102,15 +107,18 @@ button:hover {
 
 li {
     padding: 2px 2px;
+    
 }
 
 ul {
     column-count: 3;
     list-style-type: none;
+ 
 }
 
 #flex-box {
     display: flex;
+   
 }
 
 span{
@@ -137,5 +145,16 @@ span{
     font-style: italic;
     font-variant: small-caps;
     text-transform: none;
-    
+    background-image: url('https://media.istockphoto.com/photos/stone-wall-picture-id521079280?k=20&m=521079280&s=612x612&w=0&h=Pc5aEVaf-49kdwIjbz3qY4q6hiVZMtqzMQobuMNqoTw=');
+}
+form{
+    margin-left: 30%;
+    margin-right:30%;
+    border: 2px solid #000000;
+    box-shadow: 0 8px 16px 0 #000000;
+}
+
+#homebrew-monsters{
+    border: 2px #CE5937;
+    box-shadow: 0 8px 16px 0 #CE5937;
 }

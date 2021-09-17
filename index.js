@@ -90,7 +90,10 @@ function monsterCardMaker(obj){
     if(!!document.querySelector('#monster-card') === true){ 
         document.querySelector('#monster-card').remove() 
     }
-
+    
+    console.log(p)
+    p = 0
+    console.log(p)
     const monsterBody = document.querySelector('#monster-body')
     const monsterCardDiv = document.createElement('div')
     const monsterName = document.createElement('h1')

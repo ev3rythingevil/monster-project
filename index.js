@@ -20,6 +20,7 @@
 document.addEventListener('DOMContentLoaded', init);
 const BASE_URL = 'http://localhost:3000/monsters'
 const HOMEBREW_URL = 'http://localhost:3000/homebrew'
+let p = 0
     
 function init(){
     fetch(BASE_URL)
@@ -97,14 +98,22 @@ function monsterCardMaker(obj){
     const monsterHP = document.createElement('span')
     const monsterAC = document.createElement('span')
     const monsterActions = document.createElement('p')
+    const monsterCurrentHP = document.createElement('p')
+    const hpButtonUp = document.createElement('button')
+    const hpButtonDown = document.createElement('button')
     
     monsterName.textContent = obj.name
     monsterImage.src = obj.img_url
     monsterHP.innerHTML = '<strong><em>HP: </em></strong>' + obj['Hit Points'] 
     monsterAC.innerHTML = '<strong><em>AC: </em></strong>' + obj['Armor Class']
+    monsterCurrentHP.innerHTML = '<strong><em>Current HP: </em></strong>' + obj['Hit Points']
     monsterActions.innerHTML = obj.Actions // This is probably dangerous 
     monsterCardDiv.id = "monster-card"
-    monsterActions.append(monsterHP, monsterAC)
+    hpButtonUp.textContent = '+'
+    hpButtonUp.name = 'plus'
+    hpButtonDown.textContent = '-'
+    hpButtonDown.name = 'minus'
+    monsterActions.append(monsterHP, monsterAC, monsterCurrentHP, hpButtonUp, hpButtonDown)
     monsterCardDiv.append(monsterName, monsterImage, monsterActions)
     monsterBody.append(monsterCardDiv)
 
@@ -124,6 +133,9 @@ function monsterCardMaker(obj){
         deleteBtn.addEventListener('click', () => deleteMon(monsterCardDiv, obj))
         monForm.append(deleteBtn)
     }
+    
+    hpButtonUp.addEventListener('click', () => hpUp(obj, monsterCurrentHP))
+    hpButtonDown.addEventListener('click', () => hpUp(obj, monsterCurrentHP))
 }
 
 function deleteMon(card, obj){
@@ -134,11 +146,6 @@ function deleteMon(card, obj){
     card.remove()
     document.getElementById(`${obj.id}`).remove()
 }
-
-
-
-
-
 
 function newMonster(event){
     event.preventDefault()
@@ -213,4 +220,18 @@ function filterMonsters(event){
                 getMonsters(challengeList)
             }
         })
+}
+
+function hpUp(obj, hitPoints){
+    let x = parseInt(obj['Hit Points'], 10)
+    if(event.target.name === 'plus'){
+        p++
+        hitPoints.textContent = `Current HP: ${x + p}`
+        console.log('plus p', p)
+    }
+    else {
+        p--
+        hitPoints.textContent = `Current HP: ${x + p}`
+        console.log('minus', `${x+p}`)
+    }
 }
